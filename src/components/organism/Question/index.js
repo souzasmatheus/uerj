@@ -41,7 +41,7 @@ const Question = ({ data, onNewQuestion }) => {
             </Row>
           )}
           <ListGroup>
-            <ListGroupItem>{title}</ListGroupItem>
+            <ListGroupItem dangerouslySetInnerHTML={{ __html: title }} />
             {options.map((option, index) => (
               <ListGroupItem
                 onClick={() => setSelectedOption(index)}
@@ -52,9 +52,8 @@ const Question = ({ data, onNewQuestion }) => {
                     ? { cursor: 'pointer', backgroundColor: 'green' }
                     : { cursor: 'pointer' }
                 }
-              >
-                {option}
-              </ListGroupItem>
+                dangerouslySetInnerHTML={{ __html: option }}
+              />
             ))}
           </ListGroup>
           <Row className="mt-2">
